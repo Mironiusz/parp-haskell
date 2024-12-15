@@ -19,89 +19,89 @@ import qualified Data.Map as Map
 
 allFightItems :: [FightItem]
 allFightItems =
-  [ FightItem "giga_okularki" 0 55
+  [ FightItem "szybkie_okularki" 0 55
   , FightItem "koszulka_z_amppz" 0 55
-  , FightItem "fags" 10 1
-  , FightItem "beer_strong_cup" 0 5
-  , FightItem "metal_rod" 0 25
-  , FightItem "brick" 0 15
-  , FightItem "french_key" 0 8
-  , FightItem "knuckle_duster" 0 5
+  , FightItem "szlugi" 10 1
+  , FightItem "puszka_kuflowe_mocne" 0 5
+  , FightItem "metalowy_pręt" 0 25
+  , FightItem "cegła" 0 15
+  , FightItem "klucz_francuski" 0 8
+  , FightItem "kastet" 0 5
   , FightItem "kebab" 25 0
-  , FightItem "trash" 0 1
+  , FightItem "śmieci" 0 1
   , FightItem "baseball" 0 10
-  , FightItem "kings_tulip" 0 5
-  , FightItem "normal_beer" 10 0
+  , FightItem "tulipan_po_królewskim" 0 5
+  , FightItem "perła_export" 10 0
   , FightItem "iqos" 5 0
-  , FightItem "methanol" 40 0
-  , FightItem "syringe" 0 15
-  , FightItem "newspaper" 0 0
-  , FightItem "drinking_monkey" 20 0
+  , FightItem "butelka_metanolu" 40 0
+  , FightItem "strzykawka" 0 15
+  , FightItem "gazeta" 0 0
+  , FightItem "małpka_z_żabki" 20 0
   , FightItem "pusta_puszka" 0 0
   , FightItem "szalik_legii" 0 10
   , FightItem "pusta_butelka" 0 0
-  , FightItem "zoladkowa_gorzka" 10 5
-  , FightItem "sloik" 0 0
-  , FightItem "duzy_czarny_kogut" 20 15
+  , FightItem "żołądkowa_gorzka" 10 5
+  , FightItem "słoik" 0 0
+  , FightItem "duży_czarny_kogut" 20 15
   , FightItem "flaga_lecha" 0 0
   , FightItem "gaz_pieprzowy" 0 20
-  , FightItem "opaska_do_wlosow" 0 0
+  , FightItem "opaska_do_włosow" 0 0
   , FightItem "czapka_wpierdolka" 0 15
-  , FightItem "bialko" 5 0
+  , FightItem "białko" 5 0
   , FightItem "strzykawka_ze_sterydami" 0 25
   , FightItem "zeszyt_od_matmy" 0 0
-  , FightItem "karta_wzorow_na_analize" 0 15
+  , FightItem "karta_wzorów_na_analizę" 0 15
   , FightItem "algorytm_genetyczny" 0 0
-  , FightItem "siec_neuronowa" 0 30
+  , FightItem "sieć_neuronowa" 0 30
   , FightItem "puszka_piwa" 3 0
   , FightItem "blue_curacao" 15 10
   , FightItem "puste_piwo_kraftowe" 0 0
-  , FightItem "tulipan_po_zubrowce" 0 10
+  , FightItem "tulipan_po_żubrówce" 0 10
   , FightItem "pusta_strzykawka" 0 0
-  , FightItem "pelna_strzykawka" 0 20
+  , FightItem "pełna_strzykawka" 0 20
   , FightItem "zelda_na_nintendo_switch" 0 0
-  , FightItem "rude_wlosy" 0 10
-  , FightItem "pelna_puszka" 5 1
+  , FightItem "rude_włosy" 0 10
+  , FightItem "plastikowa_butelka_po_kustoszu" 5 1
   , FightItem "karty_wzorow_na_amppzty" 0 5
-  , FightItem "sajgonki_na_fakture" 20 15
+  , FightItem "sajgonki_na_fakturę" 20 15
   , FightItem "mleko_od_starego" 0 0
   , FightItem "jabol_w_puszce" 10 5
   , FightItem "szachy" 0 0
   , FightItem "baniak_jabola" 15 10
-  , FightItem "cegla" 0 15
-  , FightItem "projekt_zespolowy_1" 0 0
+  , FightItem "kamień" 0 15
+  , FightItem "projekt_zespołowy_1" 0 0
   , FightItem "projekt_pap" 0 15
   , FightItem "ptysie" 0 5
   , FightItem "projekt_risc_v_na_arko" 0 30
-  , FightItem "suprise" 1 8
-  , FightItem "szybkie_okularki" 10 0
+  , FightItem "surprise" 1 8
+  , FightItem "menelskie_okularki" 10 0
   , FightItem "doritos" 5 0
   ]
 
 allPartyItems :: [PartyItem]
 allPartyItems =
-  [ PartyItem "bison" 30 1
-  , PartyItem "jungle_ghost" 20 2
+  [ PartyItem "żubrówka" 30 1
+  , PartyItem "duch_puszczy" 20 2
   , PartyItem "jager" 50 25
   , PartyItem "harnold" 3 1
   , PartyItem "komandos" 5 2
-  , PartyItem "orzech" 25 15
+  , PartyItem "orzechówka" 25 15
   , PartyItem "smerf" 10 5
   , PartyItem "pepperoni" 30 6
-  , PartyItem "hawaii" 30 1
-  , PartyItem "lays_solone" 10 5
-  , PartyItem "lays_papryka" 10 6
-  , PartyItem "doritos_ser" 20 8
-  , PartyItem "cheetos_ketchup" 15 4
+  , PartyItem "hawajska" 30 1
+  , PartyItem "laysy_solone" 10 5
+  , PartyItem "laysy_paprykowe" 10 6
+  , PartyItem "doritosy_serowe" 20 8
+  , PartyItem "maczugi_keczupowe" 15 4
   , PartyItem "pepsi" 20 1
   , PartyItem "cola" 20 2
-  , PartyItem "rebull_z_makro" 7 3
+  , PartyItem "redbull" 7 3
   , PartyItem "tiger" 6 2
   , PartyItem "kong_strong" 6 1
   , PartyItem "vizir" 30 6
   , PartyItem "persil" 30 5
   , PartyItem "perwool" 30 8
-  , PartyItem "ciasteczka_smiechu" 50 10
+  , PartyItem "śmieszne_ciasteczka" 50 10
   , PartyItem "kosmiczny_papierek" 50 40
   ]
 
@@ -109,51 +109,51 @@ allMoneyItems :: [MoneyItem]
 allMoneyItems =
   [ MoneyItem "skarpetka" 50
   , MoneyItem "lupa" 10
-  , MoneyItem "stare_zdjecie" 100
-  , MoneyItem "szczeka" 100
+  , MoneyItem "stare_zdjęcie" 100
+  , MoneyItem "szczęka" 100
   , MoneyItem "tabletki" 100
   , MoneyItem "telefon" 3
   ]
 
-allPrezenty :: [(String, String, String, String)]
+allPrezenty :: [(String,String,String,String)]
 allPrezenty =
- [("rafalek","komandos","pusta_puszka","szalik_legii"),
-  ("kubus","jager","pusta_butelka","zoladkowa_gorzka"),
-  ("macius","rebull_z_makro","sloik","duzy_czarny_kogut"),
+ [("rafałek","komandos","pusta_puszka","szalik_legii"),
+  ("kubuś","jager","pusta_butelka","żołądkowa_gorzka"),
+  ("maciuś","redbull","słoik","duży_czarny_kogut"),
   ("krzysiu","harnold","flaga_lecha","gaz_pieprzowy"),
-  ("tomek","smerf","opaska_do_wlosow","czapka_wpierdolka"),
-  ("mikolaj","perwool","bialko","strzykawka_ze_sterydami"),
-  ("martynka","hawaii","zeszyt_od_matmy","karta_wzorow_na_analize"),
-  ("olek","jungle_ghost","algorytm_genetyczny","siec_neuronowa"),
-  ("jureczek","bison","puszka_piwa","blue_curacao"),
-  ("bartek","kong_strong","puste_piwo_kraftowe","tulipan_po_zubrowce"),
-  ("wojtek","kosmiczny_papierek","pusta_strzykawka","pelna_strzykawka"),
-  ("kopytek","lays_papryka","zelda_na_nintendo_switch","rude_wlosy"),
-  ("jasiulek","harnold","pusta_puszka","pelna_puszka"),
-  ("karol_wietnam","pepperoni","karty_wzorow_na_amppzty","sajgonki_na_fakture"),
-  ("lukasz_2","persil","mleko_od_starego","jabol_w_puszce"),
-  ("mati","ciasteczka_smiechu","szachy","baniak_jabola"),
-  ("piotrek","cheetos_ketchup","cegla","baseball"),
-  ("wiktor","doritos_ser","projekt_zespolowy_1","projekt_pap"),
-  ("dziewczyny","orzech","ptysie","projekt_risc_v_na_arko")
+  ("tomek","smerf","opaska_do_włosow","czapka_wpierdolka"),
+  ("mikołaj","perwool","białko","strzykawka_ze_sterydami"),
+  ("martynka","hawajska","zeszyt_od_matmy","karta_wzorów_na_analizę"),
+  ("olek","duch_puszczy","algorytm_genetyczny","sieć_neuronowa"),
+  ("jureczek","żubrówka","puszka_piwa","blue_curacao"),
+  ("bartek","kong_strong","puste_piwo_kraftowe","tulipan_po_żubrówce"),
+  ("wojtek","kosmiczny_papierek","pusta_strzykawka","pełna_strzykawka"),
+  ("kopytek","laysy_paprykowe","zelda_na_nintendo_switch","rude_włosy"),
+  ("jasiulek","harnold","pusta_puszka","plastikowa_butelka_po_kustoszu"),
+  ("karol_z_wietnamu","pepperoni","karty_wzorow_na_amppzty","sajgonki_na_fakturę"),
+  ("łukasz_2","persil","mleko_od_starego","jabol_w_puszce"),
+  ("mati","śmieszne_ciasteczka","szachy","baniak_jabola"),
+  ("piotrek","maczugi_keczupowe","kamień","baseball"),
+  ("wiktor","doritosy_serowe","projekt_zespołowy_1","projekt_pap"),
+  ("dziewczyny","orzechówka","ptysie","projekt_risc_v_na_arko")
  ]
 
 allNPCs :: [NPC]
 allNPCs =
   [ NPC "babcia" PokojBabci
   , NPC "krzemarz" Jorskiego
-  , NPC "jacus" Jorskiego
+  , NPC "jacuś" Jorskiego
   , NPC "sobix" Jorskiego
-  , NPC "traba" Jorskiego
-  , NPC "krolik" Jorskiego
-  , NPC "strozyk" Jorskiego
-  , NPC "witus" Jorskiego
-  , NPC "kozuch" Radzyminska
-  , NPC "swieczka" Radzyminska
-  , NPC "krol_julian" Radzyminska
-  , NPC "sliwka" Radzyminska
-  , NPC "duzy_eryk" Radzyminska
-  , NPC "bialy_crook" Blokowa
+  , NPC "trąba" Jorskiego
+  , NPC "królik" Jorskiego
+  , NPC "stróżyk" Jorskiego
+  , NPC "wituś" Jorskiego
+  , NPC "kożuch" Radzyminska
+  , NPC "świeczka" Radzyminska
+  , NPC "król_julian" Radzyminska
+  , NPC "śliwka" Radzyminska
+  , NPC "duży_eryk" Radzyminska
+  , NPC "biały_crook" Blokowa
   , NPC "chudy" Blokowa
   , NPC "jeziorak" Blokowa
   , NPC "niespodzianka" Blokowa
@@ -161,7 +161,7 @@ allNPCs =
   , NPC "mariusz" Ogrodnicza
   , NPC "grabie" Ogrodnicza
   , NPC "gracjan" Ogrodnicza
-  , NPC "karol_wietnam" Wietnam
+  , NPC "karol_z_wietnamu" Wietnam
   , NPC "martynka" SalaWykladowa
   , NPC "kopytek" SalaWykladowa
   , NPC "piotrek" Piwnica
@@ -169,13 +169,13 @@ allNPCs =
   , NPC "jureczek" PiwnicaPiwnicy
   , NPC "tomek" PiwnicaPiwnicy
   , NPC "wojtek" PiwnicaPiwnicy
-  , NPC "macius" LaboratoriumKomputerowe
+  , NPC "maciuś" LaboratoriumKomputerowe
   , NPC "olek" LaboratoriumKomputerowe
-  , NPC "kubus" LaboratoriumKomputerowe
-  , NPC "rafalek" LaboratoriumSieciowe
-  , NPC "lukasz_2" LaboratoriumSieciowe
+  , NPC "kubuś" LaboratoriumKomputerowe
+  , NPC "rafałek" LaboratoriumSieciowe
+  , NPC "łukasz_2" LaboratoriumSieciowe
   , NPC "krzysiu" MeskiKibel
-  , NPC "mikolaj" MeskiKibel
+  , NPC "mikołaj" MeskiKibel
   , NPC "jasiulek" MeskiKibel
   , NPC "mati" Korytarz1Pietro
   , NPC "wiktor" Korytarz1Pietro
@@ -184,63 +184,63 @@ allNPCs =
 
 allPositionedItems :: [PositionedItem]
 allPositionedItems =
-  [ PositionedItem "giga_okularki" PokojMarka
+  [ PositionedItem "szybkie_okularki" PokojMarka
   , PositionedItem "koszulka_z_amppz" PokojMarka
 
   , PositionedItem "skarpetka" PokojBabci
   , PositionedItem "lupa" PokojBabci
-  , PositionedItem "stare_zdjecie" PokojBabci
-  , PositionedItem "szczeka" PokojBabci
+  , PositionedItem "stare_zdjęcie" PokojBabci
+  , PositionedItem "szczęka" PokojBabci
   , PositionedItem "tabletki" PokojBabci
   , PositionedItem "telefon" PokojBabci
 
-  , PositionedItem "fags" Jorskiego
-  , PositionedItem "beer_strong_cup" Jorskiego
-  , PositionedItem "metal_rod" Jorskiego
-  , PositionedItem "brick" Jorskiego
-  , PositionedItem "french_key" Jorskiego
-  , PositionedItem "knuckle_duster" Jorskiego
-  , PositionedItem "kebab" Jorskiego
-  , PositionedItem "trash" Jorskiego
+  , PositionedItem "szlugi" Jorskiego
+  , PositionedItem "puszka_kuflowe_mocne" Radzyminska
+  , PositionedItem "metalowy_pręt" Blokowa
+  , PositionedItem "cegła" Ogrodnicza
+  , PositionedItem "klucz_francuski" Jorskiego
+  , PositionedItem "kastet" Radzyminska
+  , PositionedItem "kebab" Blokowa
+  , PositionedItem "śmieci" Ogrodnicza
   , PositionedItem "baseball" Jorskiego
-  , PositionedItem "kings_tulip" Jorskiego
-  , PositionedItem "normal_beer" Jorskiego
-  , PositionedItem "doritos" Jorskiego
+  , PositionedItem "tulipan_po_królewskim" Radzyminska
+  , PositionedItem "perła_export" Blokowa
+  , PositionedItem "doritos" Ogrodnicza
 
   , PositionedItem "redbull" Ogrodnicza
-  , PositionedItem "syringe" Ogrodnicza
-  , PositionedItem "newspaper" Ogrodnicza
-  , PositionedItem "drinking_monkey" Ogrodnicza
+  , PositionedItem "strzykawka" Ogrodnicza
+  , PositionedItem "gazeta" Ogrodnicza
+  , PositionedItem "małpka_z_żabki" Ogrodnicza
 
-  , PositionedItem "bison" AlejkaAlkohol
-  , PositionedItem "jungle_ghost" AlejkaAlkohol
+  , PositionedItem "żubrówka" AlejkaAlkohol
+  , PositionedItem "duch_puszczy" AlejkaAlkohol
   , PositionedItem "jager" AlejkaAlkohol
   , PositionedItem "harnold" AlejkaAlkohol
   , PositionedItem "komandos" AlejkaAlkohol
-  , PositionedItem "orzech" AlejkaAlkohol
+  , PositionedItem "orzechówka" AlejkaAlkohol
   , PositionedItem "smerf" AlejkaAlkohol
 
   , PositionedItem "pepperoni" AlejkaJedzenie
-  , PositionedItem "hawaii" AlejkaJedzenie
-  , PositionedItem "lays_solone" AlejkaJedzenie
-  , PositionedItem "lays_papryka" AlejkaJedzenie
-  , PositionedItem "doritos_ser" AlejkaJedzenie
-  , PositionedItem "cheetos_ketchup" AlejkaJedzenie
+  , PositionedItem "hawajska" AlejkaJedzenie
+  , PositionedItem "laysy_solone" AlejkaJedzenie
+  , PositionedItem "laysy_paprykowe" AlejkaJedzenie
+  , PositionedItem "doritosy_serowe" AlejkaJedzenie
+  , PositionedItem "maczugi_keczupowe" AlejkaJedzenie
 
   , PositionedItem "pepsi" AlejkaNapoje
   , PositionedItem "cola" AlejkaNapoje
-  , PositionedItem "rebull_z_makro" AlejkaNapoje
+  , PositionedItem "redbull" AlejkaNapoje
   , PositionedItem "tiger" AlejkaNapoje
   , PositionedItem "kong_strong" AlejkaNapoje
 
   , PositionedItem "vizir" PalarniaSmietnik
   , PositionedItem "persil" PalarniaSmietnik
   , PositionedItem "perwool" PalarniaSmietnik
-  , PositionedItem "ciasteczka_smiechu" PalarniaSmietnik
+  , PositionedItem "śmieszne_ciasteczka" PalarniaSmietnik
   , PositionedItem "kosmiczny_papierek" PalarniaSmietnik
 
-  , PositionedItem "suprise" EpickaLazienka
-  , PositionedItem "szybkie_okularki" Parkiet
+  , PositionedItem "surprise" EpickaLazienka
+  , PositionedItem "menelskie_okularki" Parkiet
   ]
 
 connections :: [(Location, Location, String)]
@@ -280,6 +280,7 @@ connections =
   , (PiwnicaPiwnicy, Pietro16, "south")
   , (PiwnicaPiwnicy, Wietnam, "east")
   , (PiwnicaPiwnicy, DamskiKibel, "west")
+  , (DamskiKibel, PiwnicaPiwnicy, "east")
   , (LaboratoriumSieciowe, MeskiKibel, "east")
   , (MeskiKibel, LaboratoriumSieciowe, "west")
   , (MeskiKibel, Korytarz1Pietro, "north")

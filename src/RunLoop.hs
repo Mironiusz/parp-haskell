@@ -15,12 +15,23 @@ import Data.Char (toLower)
 -- | Opisuje aktualną lokalizację gracza oraz wyświetla dostępne ruchy, przedmioty i NPC
 describeLocation :: GameState -> IO ()
 describeLocation st = do
-  putStrLn $ "Znajdujesz się w: " ++ describeLocationName (playerLocation st)
+  putStrLn $ "Znajdujesz się w: " ++ describeLocationName (playerLocation st) ++ "."
   displayPossibleMoves st
   putStrLn ""
   displayItemsHere st
   putStrLn ""
   displayNpcsHere st
+
+-- | Opisuje aktualny ekwipunek gracza
+describeInventory :: GameState -> IO ()
+describeInventory st = do
+  displayInventory st
+
+-- | Opisuje aktualny ekwipunek gracza
+describePartyInventory :: GameState -> IO ()
+describePartyInventory st = do
+  putStrLn $ "Masz " ++ show (playerMoney st) ++ " zł."
+  displayPartyInventory st
 
 -- | Wyświetla możliwe kierunki ruchu z bieżącej lokalizacji
 displayPossibleMoves :: GameState -> IO ()
@@ -42,7 +53,27 @@ displayItemsHere st = do
     then putStrLn "Nie ma tu nic do podniesienia."
     else do
       putStrLn "Itemy:"
-      mapM_ putStrLn itemsHere
+      mapM_ (putStrLn . ("  -> " ++)) itemsHere
+
+-- | Wyświetla przedmioty w ekwipunku gracza
+displayInventory :: GameState -> IO ()
+displayInventory st = do
+  let inventory = playerInventory st
+  if null inventory
+    then putStrLn "Twój ekwipunek jest pusty."
+    else do
+      putStrLn "Twój ekwipunek zawiera:"
+      mapM_ (putStrLn . ("  -> " ++)) inventory
+
+-- | Wyświetla przedmioty w ekwipunku gracza
+displayPartyInventory :: GameState -> IO ()
+displayPartyInventory st = do
+  let inventory = partyInventory st
+  if null inventory
+    then putStrLn "Twój ekwipunek jest pusty."
+    else do
+      putStrLn "Na imprezę kupiłeś:"
+      mapM_ (putStrLn . ("  -> " ++)) inventory
 
 -- | Wyświetla NPC obecnych w bieżącej lokalizacji
 displayNpcsHere :: GameState -> IO ()
@@ -53,7 +84,32 @@ displayNpcsHere st = do
     then putStrLn "Nie ma tu nikogo."
     else do
       putStrLn "Osoby:"
-      mapM_ putStrLn ns
+      mapM_ (putStrLn . ("  -> " ++)) ns
+
+displayHelp :: IO ()
+displayHelp = do
+  putStrLn "=== Lista dostępnych komend ==="
+  putStrLn "north, east, south, west"
+  putStrLn "  -> Przemieszczasz się w wybranym kierunku, jeśli jest to możliwe."
+  putStrLn "describe"
+  putStrLn "  -> Wyświetla opis aktualnej lokalizacji, w tym przedmioty i NPC w pobliżu."
+  putStrLn "inventory"
+  putStrLn "  -> Wyświetla listę przedmiotów w twoim ekwipunku."
+  putStrLn "party_inventory"
+  putStrLn "  -> Wyświetla listę przedmiotów zgromadzonych na imprezę. Tutaj są też pieniądze."
+  putStrLn "pick <przedmiot>"
+  putStrLn "  -> Podnosi przedmiot znajdujący się w bieżącej lokalizacji."
+  putStrLn "talk <osoba>"
+  putStrLn "  -> Rozpoczyna rozmowę z wybraną postacią (NPC) w bieżącej lokalizacji."
+  putStrLn "use <przedmiot>"
+  putStrLn "  -> Używa wybranego przedmiotu z twojego ekwipunku (np. podczas walki)."
+  putStrLn "help"
+  putStrLn "  -> Wyświetla tę pomoc."
+  putStrLn "s_help"
+  putStrLn "  -> Wyświetla komendy, bez objaśnień."
+  putStrLn "quit"
+  putStrLn "  -> Wyjście z gry."
+  putStrLn "================================"
 
 -- | Funkcja odpowiadająca za ruch gracza w danym kierunku
 moveCommand :: String -> GameState -> IO GameState
@@ -78,6 +134,10 @@ moveCommand dir st = do
               let updatedSt = st { playerLocation = AlejkaAlkohol, currentPhase = Phase2 }
               phaseDialogue Phase2
               return updatedSt
+            (Ogrodnicza, Phase1, Makro) -> do
+              let updatedSt = st { playerLocation = AlejkaAlkohol, currentPhase = Phase2 }
+              phaseDialogue Phase2
+              return updatedSt
             (PalarniaSmietnik, Phase2, Wydzial) -> do
               let updatedSt = st { playerLocation = Korytarz1Pietro, currentPhase = Phase3 }
               phaseDialogue Phase3
@@ -87,20 +147,25 @@ moveCommand dir st = do
                   q = fromIntegral (partyQuality st) / fromIntegral guestsCount'
                   gl = guestList st
                   (gl', nps, st') = spawnNpcs q gl st
-                  npcRecords = map (\(name, loc) -> NPC name loc) nps
-                  updatedSt = st' { playerLocation = Parkiet, currentPhase = Phase4, npcs = npcs st' ++ npcRecords }
+                  npcRecords = [NPC n l | (n,l)<-nps]
+                  updatedSt = st' {playerLocation = Parkiet, currentPhase = Phase4, npcs = npcs st' ++ npcRecords}
               phaseDialogue Phase4
               return updatedSt
             (Parkiet, Phase4, DrzwiWejsciowe) -> do
               let (st2, intro) = initFight st { playerLocation = DrzwiWejsciowe }
               mapM_ putStrLn intro
               phaseDialogue Phase5
+              -- Po rozpoczęciu walki pokazujemy ekwipunek, aby widoczne były przedmioty gotowe do użycia
+              describeInventory st2
               return st2
             _ -> do
               let updatedSt = st { playerLocation = nextLoc }
               return updatedSt
-      describeLocation newSt
+
+      -- Po przejściu do nowej lokacji, jeśli nie jesteśmy w walce, wyświetlamy jej opis
+      unless (inFight newSt) $ describeLocation newSt
       return newSt
+
 
 -- | Główna pętla gry, która obsługuje komendy gracza
 gameLoop :: Game ()
@@ -116,13 +181,24 @@ gameLoop = do
     ("quit":_) -> do
       liftIO $ putStrLn "Koniec gry."
     ("help":_) -> do
-      liftIO $ putStrLn "Komendy: north, east, south, west, describe, pick <przedmiot>, talk <osoba>, use <przedmiot>, help, quit"
+      liftIO displayHelp
+      gameLoop
+    ("s_help":_) -> do
+      liftIO $ putStrLn "Komendy: north, east, south, west, describe, inventory, party_inventory, pick <przedmiot>, talk <osoba>, use <przedmiot>, help, s_help, quit"
       gameLoop
     ("describe":_) -> do
       st' <- get
       liftIO $ describeLocation st'
       gameLoop
-    [dir] | dir `elem` ["north", "east", "south", "west"] -> do
+    ("inventory":_) -> do
+      st' <- get
+      liftIO $ describeInventory st'
+      gameLoop
+    ("party_inventory":_) -> do
+      st' <- get
+      liftIO $ describePartyInventory st'
+      gameLoop
+    [dir] | dir `elem` ["north", "east", "south", "west"] -> do  -- Poprawka tutaj
       st' <- get
       st2 <- liftIO $ moveCommand dir st'
       put st2
@@ -151,8 +227,7 @@ gameLoop = do
       useItem name
       st' <- get
       when (inFight st') $ do
-        res <- liftIO $ fightCheck st'
-        liftIO $ mapM_ putStrLn res
+        liftIO $ fightCheck st'
       gameLoop
     _ -> do
       liftIO $ putStrLn "Invalid command."
