@@ -1,0 +1,39 @@
+name:           targowka-game
+version:        0.1.0.0
+build-type:     Simple
+extra-source-files:
+  - README.md
+  - data/*.txt  # Jeśli masz dodatkowe pliki danych
+
+dependencies:
+  - base >=4.7 && <5
+  - mtl >=2.3.1
+  - containers >=0.5
+
+library:
+  source-dirs: src
+  exposed-modules:
+    - GameState
+    - RunLoop
+    - Actions
+    - DataItems
+    - Dialogues
+    - PhaseDialogues
+  other-modules:
+    - Paths_targowka_game
+  dependencies:
+    - base >=4.7 && <5
+    - mtl >=2.3.1
+    - containers >=0.5
+  language: Haskell2010
+
+executables:
+  targowka-game:
+    main: Main.hs
+    source-dirs: src
+    dependencies:
+      - base >=4.7 && <5
+      - mtl >=2.3.1
+      - containers >=0.5
+      - targowka-game
+    language: Haskell2010
