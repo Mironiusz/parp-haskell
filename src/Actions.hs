@@ -210,10 +210,8 @@ talkTo npcTargetName = do
   unless (null msg) $ do
     liftIO $ putStrLn msg
     st' <- get
-    -- usuwamy NPC z listy
     put st'{ npcs = filter (\npc -> npcName npc /= npcTargetName) (npcs st') }
     liftIO $ putStrLn $ npcTargetName ++ " gdzieś idzie."
-    -- Zapraszanie gości, jeśli jest Phase3
     when (ph == Phase3) $ invite npcTargetName
 
 initFight :: GameState -> (GameState, [String])
@@ -226,12 +224,10 @@ initFight st =
               ]
   in (st2, intro)
 
--- | Opisuje aktualny ekwipunek gracza
 describeInventoryQ :: GameState -> IO ()
 describeInventoryQ st = do
   displayInventoryQ st
 
--- | Wyświetla przedmioty w ekwipunku gracza
 displayInventoryQ :: GameState -> IO ()
 displayInventoryQ st = do
   let inventory = playerInventory st

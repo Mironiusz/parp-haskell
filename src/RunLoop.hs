@@ -155,14 +155,12 @@ moveCommand dir st = do
               let (st2, intro) = initFight st { playerLocation = DrzwiWejsciowe }
               mapM_ putStrLn intro
               phaseDialogue Phase5
-              -- Po rozpoczęciu walki pokazujemy ekwipunek, aby widoczne były przedmioty gotowe do użycia
               describeInventory st2
               return st2
             _ -> do
               let updatedSt = st { playerLocation = nextLoc }
               return updatedSt
 
-      -- Po przejściu do nowej lokacji, jeśli nie jesteśmy w walce, wyświetlamy jej opis
       unless (inFight newSt) $ describeLocation newSt
       return newSt
 
